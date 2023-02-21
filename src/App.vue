@@ -1,21 +1,10 @@
 <template>
-  <div>
-    <header>хэдэр из апп</header>
-    <RouterView />
-</div>
-  
+  <main-page></main-page>
 </template>
 
 <script setup>
-import { RouterView } from "vue-router";
+
+import MainPage from '@/pages/main/index.vue';
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/main.scss';
 
-header {
-  background-color: $bg-color;
-  font-size: 50px;
-  color: $primary-color;
-}
-</style>
