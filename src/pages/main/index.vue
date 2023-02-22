@@ -17,9 +17,10 @@
   @import '@/assets/scss/main.scss';
   
   header {
-    background-color: $bg-color;
+    background-color: $color-dark;
     font-size: 50px;
-    color: $primary-color;
+    color: $color-accent;
+    font-family: $font-main;
   }
   </style>
   
