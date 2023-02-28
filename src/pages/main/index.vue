@@ -1,8 +1,9 @@
 <template>
     <div class="main-page">
       <main-layout>
+        <!-- сюда добавляется -->
         <template #main >
-          <router-view />
+          <!-- <router-view /> -->
         </template>
       </main-layout>
   </div>
@@ -16,11 +17,6 @@
   <style lang="scss">
   @import '@/assets/scss/main.scss';
   
-  header {
-    background-color: $color-dark;
-    font-size: 50px;
-    color: $color-accent;
-    font-family: $font-main;
-  }
+
   </style>
   
