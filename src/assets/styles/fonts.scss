@@ -1,0 +1,27 @@
+@font-face {
+    font-family: Tinos;
+    src: url('@/assets/fonts/Tinos-Regular.ttf') format('truetype'),
+    url("@/assets/fonts/Tinos-Regular.woff") format('woff'),
+    url("@/assets/fonts/Tinos-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: Tinos;
+    src: url('@/assets/fonts/Tinos-Bold.ttf') format('truetype'),
+    url("@/assets/fonts/Tinos-Bold.woff") format('woff'),
+    url("@/assets/fonts/Tinos-Bold.woff2") format('woff2');
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: Tinos;
+    src: url('@/assets/fonts/Tinos-Italic.ttf') format('truetype'),
+    url("@/assets/fonts/Tinos-Italic.woff") format('woff'),
+    url("@/assets/fonts/Tinos-Italic.woff2") format('woff2');
+    font-style: italic;
+    font-weight: 400;
+  }
+

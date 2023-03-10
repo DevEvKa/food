@@ -1,0 +1,32 @@
+@import './normalize.scss';
+@import './variables.scss';
+@import './fonts.scss';
+
+
+body {
+    min-width: 340px;
+    min-height: 100vh;
+    color: var(--color-primary-dark);
+    font-family: var(--font-main);
+    font-size: 16px;
+    background-color: var(--color-primary-light);
+  }
+
+  .open body {
+    overflow: hidden;
+  }
+
+  .container {
+    min-width: 340px;
+    min-height: 100%;
+    margin: 0 auto;
+    overflow: clip;
+
+  }
+
+  .content-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+

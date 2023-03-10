@@ -4,19 +4,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border: 0;
   position: relative;
 }
 
 html,
 body {
   height: 100%;
+  line-height: 1;
 }
 
 *:focus {
   outline: none;
 }
 
-li {
+li, ol, ul {
   list-style-type: none;
   font-family: inherit;
 }
@@ -26,12 +28,23 @@ a {
   color: inherit;
   cursor: pointer;
 }
-button {
-  background-color: transparent;
+
+textarea,
+button,
+input {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
   color: inherit;
   border-width: 0;
   cursor: pointer;
 }
+
+button {
+  background-color: inherit;
+  cursor: pointer;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: inherit;

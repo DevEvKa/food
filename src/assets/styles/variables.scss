@@ -1,0 +1,24 @@
+:root {
+    --color-primary: #235ad1;
+    --color-primary-dark: #000000;
+    --color-dark-secondary: #656363;
+    --color-primary-light: #FFFFFF;
+    --color-accent: #FF7400;
+    --color-secondary: #D67E34;
+    --color-light: #E5E5E5;
+    --color-details: #BC9060;
+    
+    --screen-phone: 300px;
+    --screen-phone-landscape: 480px;
+    --screen-tablet: 768px;
+    --screen-desktop: 1024px;
+    
+    --font-main: 'Tinos', sans-serif;
+  }
+
+
+/* // sm	@media (min-width: 640px) { ... }	≥640px
+// md	@media screen and (min-width: 768px)	≥768px
+// lg	@media screen and (min-width: 1024px)	≥1024px
+// xl	@media screen and (min-width: 1280px)	≥1280px
+// 2xl	@media screen and (min-width: 1536px)	≥1536px */

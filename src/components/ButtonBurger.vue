@@ -1,60 +1,74 @@
 <template>
-    <button @click="manageBurger" class="burger">
-        <img v-if="!isMenuOpened" src="../assets/images/icons/icon_burger-closed.png" class="burger__image" alt="Открыть меню">
-        <img v-else src="../assets/images/icons/icon_burger-opened.png" class="burger__image burger__image_cross" alt="Закрыть меню">
-    </button>
+  <button
+    type="button"
+    @click="handleButtonClicked"
+    :class="['menu_icon', 'icon-menu', { 'open-menu': isMenuClosed }]"
+  >
+    <span class="icon-menu_line"></span>
+  </button>
 </template>
 
-<script>
-export default { 
-data () { 
-    return { 
-        isMenuOpened: false
-        }
-    }, 
-    methods: {
-        manageBurger() {
-            this.isMenuOpened ? this.isMenuOpened = false : this.isMenuOpened = true;
-            this.$emit('sendBurgerState', this.isMenuOpened);
-        }
-    }
-}
+<script setup>
+import { ref } from "vue";
 
+let isMenuClosed = ref(false);
+
+const emit = defineEmits(["sendBurgerState"]);
+
+function handleButtonClicked() {
+  console.log(isMenuClosed.value);
+  isMenuClosed.value
+    ? (isMenuClosed.value = false)
+    : (isMenuClosed.value = true);
+  emit("sendBurgerState", isMenuClosed.value);
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.icon-menu {
+  display: block;
+  position: relative;
+  z-index: 5;
+  width: 30px;
+  height: 20px;
 
-.burger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    padding: 20px;
-    
+  @media (min-width: 797.98px) {
+    display: none;
+  }
+}
 
-    &__image {
-        display: block;
-        width: 25px;
-        height: auto;
+.icon-menu_line,
+.icon-menu::after,
+.icon-menu::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-accent);
+  height: 3px;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s;
+}
+.icon-menu_line {
+  top: calc(50% - 1px);
+}
+.icon-menu::before {
+  top: 0;
+}
+.icon-menu::after {
+  bottom: 0;
+}
+.open-menu .icon-menu_line {
+  left: 50%;
+  width: 0;
+}
 
-        
-    @media only screen and (min-width: $screen-phone-landscape) {
-        width: 35px; 
-    }
+.open-menu.icon-menu::before {
+  top: calc(50% - 1px);
+  transform: rotate(-45deg);
+}
 
-    @media only screen and (min-width: $screen-tablet) {
-        display: none; 
-    }
-
-        &_cross {
-            width: 21px;
-            height: 18px;
-
-            @media only screen and (min-width: $screen-phone-landscape) {
-                width: 28px;
-                height: 25px;
-            }
-        }
-    }
+.open-menu.icon-menu::after {
+  top: calc(50% - 1px);
+  transform: rotate(45deg);
 }
 </style>
