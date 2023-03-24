@@ -1,31 +1,37 @@
 <template>
-  <div class="feedback-item feedback">
-    <p class="feedback_text">
-      Я надолго запомню мой День рождения, проведённый в этом ресторане! Кусочек
-      родной Армении!!! Отдельное спасибо за комплепент в виде фруктовой
-      тарелки. Будем рекомендовать этот ресторан своим друзьям и родственникам
-      также за рубежом, путешествующих в Санкт-Петербург!!!
-    </p>
-    <div class="feedback_person person">
+  <div class="feedback-item">
+    <p class="feedback-item_text">{{ text }}</p>
+    <div class="feedback-item_person person">
       <div class="person_image-wrapper">
-        <img
-          class="person_image"
-          src="../assets/images/feedback_1.jpg"
-          alt="Фото посетителя"
-        />
+        <img class="person_image" :src="getImageUrl(image)" :alt="alt" />
       </div>
-      <span class="person_role">Посетитель</span>
-      <span class="person_name">Николай</span>
+      <span class="person_role">{{ role }}</span>
+      <span class="person_name">{{ name }}</span>
     </div>
   </div>
 </template>
 
+<script setup>
+const props = defineProps({
+  id: { type: String, require: false },
+  image: { type: String, require: false },
+  alt: { type: String, require: false },
+  text: { type: String, require: false },
+  role: { type: String, require: false },
+  name: { type: String, require: false },
+});
+
+function getImageUrl(image) {
+  return new URL(`../assets/images/feedback/${image}`, import.meta.url).href;
+}
+</script>
+
 <style lang="scss" scoped>
-.feedback {
+.feedback-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px;
 
   &_text {
     font-style: italic;
@@ -33,7 +39,11 @@
     font-size: 20px;
     line-height: 27px;
     text-align: center;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
+    @media (min-width: 600px) {
+      font-size: 23px;
+      line-height: 27px;
+    }
   }
 }
 .person {
@@ -51,6 +61,9 @@
       max-width: 100px;
       height: auto;
       text-align: center;
+      @media (min-width: 600px) {
+        max-width: 150px;
+      }
     }
   }
   &_role {
@@ -59,7 +72,10 @@
     font-size: 20px;
     line-height: 27px;
     text-align: center;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
+    @media (min-width: 600px) {
+      font-size: 23px;
+    }
   }
   &_name {
     font-style: normal;
@@ -67,7 +83,10 @@
     font-size: 20px;
     line-height: 27px;
     text-align: center;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
+    @media (min-width: 600px) {
+      font-size: 23px;
+    }
   }
 }
 </style>

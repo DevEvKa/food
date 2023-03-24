@@ -1,11 +1,11 @@
 <template>
-  <div class="advantage-item advantage">
-    <img :src="getImageUrl(image)" class="advantage_img" :alt="alt" />
-    <h4 class="advantage_title">
+  <div class="advantage-item">
+    <img :src="getImageUrl(image)" class="advantage-item_img" :alt="alt" />
+    <h4 class="advantage-item_title">
       {{ title }}
-      <span class="advantage_title_accent">{{ titleAccent }}</span>
+      <span class="advantage-item_title_accent">{{ titleAccent }}</span>
     </h4>
-    <p class="advantage_text">{{ text }}</p>
+    <p class="advantage-item_text">{{ text }}</p>
   </div>
 </template>
 
@@ -39,21 +39,36 @@ function getImageUrl(image) {
 </script>
 
 <style lang="scss">
-.advantage {
-  width: 290px;
-  height: 276px;
+.advantage-item {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   padding: 20px 13px;
-  background-color: var(--color-primary-light);
-  box-shadow: 10px 10px 40px 20px rgba(0, 0, 0, 0.1);
+  background-color: $color-primary-light;
+  box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 797.98px) {
-    width: 349px;
-    height: 328px;
+  @media (min-width: 400px) {
+    width: 80%;
+  }
+  @media (min-width: 500px) {
+    width: 70%;
+  }
+
+  @media (min-width: 600px) {
+    width: 40%;
     padding: 20px;
+  }
+
+  @media (min-width: 900px) {
+    width: 28%;
+    padding: 30px 20px;
+  }
+
+  &:hover {
+    box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.4);
   }
 
   &_img {
@@ -61,7 +76,11 @@ function getImageUrl(image) {
     max-width: 87px;
     height: auto;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+
+    @media (min-width: 800px) {
+      max-width: 80px;
+    }
   }
 
   &_title {
@@ -69,11 +88,11 @@ function getImageUrl(image) {
     font-weight: 400;
     font-size: 26px;
     line-height: 30px;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
     margin-bottom: 20px;
-
+    text-align: center;
     &_accent {
-      color: var(--color-details);
+      color: $color-details;
     }
   }
 
@@ -83,8 +102,10 @@ function getImageUrl(image) {
     font-size: 22px;
     line-height: 25px;
     text-align: center;
-    color: var(--color-dark-secondary);
-    @media (min-width: 797.98px) {
+    flex-grow: 1;
+    color: $color-dark-secondary;
+
+    @media (min-width: 1000px) {
       font-size: 26px;
     }
   }

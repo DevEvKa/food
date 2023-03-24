@@ -1,20 +1,21 @@
-:root {
-    --color-primary: #235ad1;
-    --color-primary-dark: #000000;
-    --color-dark-secondary: #656363;
-    --color-primary-light: #FFFFFF;
-    --color-accent: #FF7400;
-    --color-secondary: #D67E34;
-    --color-light: #E5E5E5;
-    --color-details: #BC9060;
+
+    $color-primary: #235ad1;
+    $color-primary-dark: #000000;
+    $color-dark-secondary: #656363;
+    $color-primary-light: #FFFFFF;
+    $color-accent: #FF7400;
+    $color-secondary: #D67E34;
+    $color-light: #E5E5E5;
+    $color-details: #BC9060;
+    $color-bg:#E5E4E4;
     
-    --screen-phone: 300px;
-    --screen-phone-landscape: 480px;
-    --screen-tablet: 768px;
-    --screen-desktop: 1024px;
+    $screen-phone: 320px;
+    $screen-phone-landscape: 480px;
+    $screen-tablet: 768px;
+    $screen-desktop: 1024px;
     
-    --font-main: 'Tinos', sans-serif;
-  }
+    $font-main: 'Tinos', sans-serif;
+
 
 
 /* // sm	@media (min-width: 640px) { ... }	≥640px

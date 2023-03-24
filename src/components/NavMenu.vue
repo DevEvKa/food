@@ -1,9 +1,9 @@
 <template>
-  <nav class="nav-menu menu">
-    <div class="menu_body" :class="{ open: isMenuOpen }">
-      <ul class="menu_list">
-        <li class="menu_item" v-for="link of navLinks" :key="link">
-          <a href="#" class="menu_link">{{ link }}</a>
+  <nav class="nav-menu">
+    <div class="nav-menu_body" :class="{ open: isMenuOpen }">
+      <ul class="nav-menu_list">
+        <li class="nav-menu_item" v-for="link of navLinks" :key="link">
+          <a href="#" class="nav-menu_link">{{ link }}</a>
         </li>
       </ul>
     </div>
@@ -11,44 +11,51 @@
   </nav>
 </template>
 
-<script>
+<script setup>
 import ButtonBurger from "../components/ButtonBurger.vue";
-export default {
-  data() {
-    return {
-      navLinks: ["Главная", "Меню", "О нас", "Бронь"],
-      isMenuOpen: false,
-    };
+const props = defineProps({
+  navLinks: {
+    type: Array,
+    default: ["О нас", "Меню", "Отзывы"],
   },
-  components: {
-    ButtonBurger,
+  isMenuOpen: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    openMenu(burgerState) {
-      this.isMenuOpen = burgerState;
-    },
-  },
+});
+
+const openMenu = (burgerState) => {
+  this.isMenuOpen = burgerState;
 };
 </script>
 
 <style lang="scss" scoped>
-.menu {
+.nav-menu {
+  display: flex;
+
+  @media (min-width: 800px) {
+    flex-grow: 1;
+  }
+
   &_body {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: -100%;
-    transition: left 0.3s;
+    transition: all 0.3s;
     padding: 100px 15px 20px 15px;
     overflow: auto;
+
     &.open {
       left: 0;
+      background-color: $color-primary-dark;
     }
-    @media (min-width: 797.98px) {
+    @media (min-width: 800px) {
       overflow: visible;
       position: relative;
       display: flex;
+
       left: 0;
       height: auto;
       padding: 0;
@@ -58,25 +65,35 @@ export default {
   &_list {
     display: flex;
     flex-direction: column;
-    gap: 53px;
-    background-color: orangered;
 
-    @media (min-width: 797.98px) {
+    @media (min-width: 800px) {
+      width: 100%;
       flex-direction: row;
       align-items: center;
-      gap: 30px;
+      justify-content: space-around;
       flex-wrap: wrap;
+      gap: 2px;
     }
   }
-  &_link {
-    font-size: 30px;
 
-    @media (min-width: 797.98px) {
-      font-size: 25px;
-      color: bisque;
-      &:hover {
-        color: aquamarine;
-      }
+  &_item {
+    margin-bottom: 50px;
+    padding: 20px;
+    @media (min-width: 800px) {
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+
+  &_link {
+    font-size: 40px;
+    color: $color-primary-light;
+
+    @media (min-width: 800px) {
+      font-size: 20px;
+    }
+    @media (min-width: 1000px) {
+      font-size: 23px;
     }
   }
 }

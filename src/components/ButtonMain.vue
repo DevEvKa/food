@@ -1,39 +1,40 @@
 <template>
-  <button class="button" @click="btnClicked">Заказать столик</button>
+  <button class="button" @click="btnClicked">
+    <slot name="button"></slot>
+  </button>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      /* data properties here */
-    };
-  },
-  methods: {
-    btnClicked() {
-      console.log("btnClicked");
-    },
-  },
+<script setup>
+const btnClicked = () => {
+  console.log("btnClicked");
 };
 </script>
 
 <style lang="scss" scoped>
 .button {
-  display: none;
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 19px;
+  color: $color-primary-light;
+  background-color: $color-accent;
+  border: none;
+  padding: 12px 16px;
 
-  @media (min-width: 797.98px) {
-    display: block;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    line-height: 19px;
-    color: var(--color-primary-light);
-    background-color: var(--color-accent);
-    border: none;
+  @media (min-width: 800px) {
+    padding: 10px;
+  }
+  @media (min-width: 1000px) {
     padding: 12px 16px;
   }
-  @media (min-width: var(--screen-desktop)) {
-    padding: 14px 18px;
+  @media (min-width: 1200px) {
+    padding: 14px 25px;
+    font-size: 16px;
+  }
+  &:hover {
+    color: $color-accent;
+    background-color: $color-primary-light;
   }
 }
 </style>

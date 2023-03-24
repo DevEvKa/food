@@ -1,52 +1,59 @@
 <template>
   <a href="#" @click="handleButtonClicked" class="button-cart">
-    <img
-      src="../assets/images/icons/icon_cart.svg"
-      class="button-cart_img"
-      alt="Корзина"
-    />
+    <p class="button-cart_text"><slot name="buttonCartText"></slot></p>
+    <slot name="buttonCartImage">
+      <img
+        src="../assets/images/icons/icon_cart.svg"
+        class="button-cart_img"
+        alt="Корзина"
+      />
+    </slot>
   </a>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-let isMenuClosed = ref(false);
-
-const emit = defineEmits(["sendBurgerState"]);
-
-function handleButtonClicked() {
-  console.log(isMenuClosed.value);
-  isMenuClosed.value
-    ? (isMenuClosed.value = false)
-    : (isMenuClosed.value = true);
-  emit("sendBurgerState", isMenuClosed.value);
-}
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .button-cart {
-  display: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 
-  @media (min-width: 797.98px) {
+  @media (min-width: 800px) {
     display: flex;
     padding: 0 15px;
     align-items: center;
-
-    &::after {
-      content: "";
-      height: 60px;
-      display: block;
-      position: absolute;
-      border-right: 1px solid var(--color-primary-light);
-      top: 0;
-      right: 0;
+  }
+  @media (min-width: 1000px) {
+    padding: 0 30px;
+  }
+  &:hover {
+    border: 0;
+    & .button-cart_text {
+      text-shadow: 1px 0px 1px $color-primary-light;
+    }
+    & .button-cart_img {
+      transform: scale(1.07);
     }
   }
 
   &_img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    @media (min-width: 1000px) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &_text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: $color-primary-light;
+    @media (min-width: 1000px) {
+      font-size: 18px;
+    }
   }
 }
 </style>

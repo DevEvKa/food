@@ -1,39 +1,41 @@
 <template>
   <div class="menu-item">
-    <span class="menu-item_recommended">Recommended</span>
-    <div class="menu-item_circles">
-      <div class="menu-item_picture-block">
-        <img
-          class="menu-item_picture"
-          src="../assets/images/menu-item_1.jpg"
-          alt="Фото блюда"
-        />
-      </div>
+    <span v-if="recommended" class="menu-item_recommended">Recommended</span>
+    <div class="menu-item_wrapper">
+      <img class="menu-item_picture" :src="getImageUrl(image)" :alt="alt" />
       <div class="menu-item_price-block">
-        <span class="menu-item_price">420</span>
-        <span class="menu-item_currency">₽</span>
+        <span class="menu-item_price">{{ price }}</span>
+        <span class="menu-item_currency">{{ currency }}</span>
       </div>
     </div>
 
     <div class="menu-item_info">
-      <h5 class="menu-item_name">Гамбургер макси</h5>
-      <p class="menu-item_description">Максимально толстый слой мяса</p>
+      <h5 class="menu-item_name">{{ title }}</h5>
+      <p class="menu-item_description">{{ description }}</p>
     </div>
-    <button-main></button-main>
+    <button-main><template v-slot:button>В корзину</template></button-main>
   </div>
 </template>
 <script setup>
 import ButtonMain from "./ButtonMain.vue";
 const props = defineProps({
-  picture: {
+  image: {
+    type: String,
+    default: "",
+  },
+  alt: {
     type: String,
     default: "",
   },
   price: {
-    type: Number,
+    type: String,
     default: "",
   },
-  name: {
+  currency: {
+    type: String,
+    default: "",
+  },
+  title: {
     type: String,
     default: "",
   },
@@ -46,6 +48,10 @@ const props = defineProps({
     default: true,
   },
 });
+
+function getImageUrl(image) {
+  return new URL(`../assets/images/dishes/${image}`, import.meta.url).href;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -56,12 +62,16 @@ const props = defineProps({
   align-items: center;
   justify-content: center;
   padding: 40px 15px 30px;
-  background-color: var(--color-primary-light);
-  border: 1px solid red;
-
-  @media (min-width: 797.98px) {
+  background-color: $color-primary-light;
+  @media (min-width: 600px) {
     padding-left: 25px;
     padding-right: 25px;
+  }
+
+  &:hover {
+    .menu-item_recommended {
+      background-color: $color-accent;
+    }
   }
 
   &_recommended {
@@ -70,35 +80,39 @@ const props = defineProps({
     font-size: 13px;
     line-height: 18px;
     text-align: center;
-    color: var(--color-primary-dark);
-    background-color: var(--color-secondary);
+    color: $color-primary-dark;
+    background-color: $color-secondary;
     padding: 9px 15px;
     position: absolute;
     top: 0;
     left: 0;
     text-transform: uppercase;
   }
-  &_circles {
+  &_wrapper {
     padding: 20px 0;
+    &:hover {
+      .menu-item_price-block {
+        background-color: $color-accent;
+      }
+      .menu-item_picture {
+        transform: scale(1.03);
+        box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.4);
+      }
+    }
   }
 
   &_picture {
-    width: 100%;
-    padding: 10px;
-    border-radius: 50%;
-
-    &-block {
-      max-width: 225px;
-      height: auto;
-      text-align: center;
-    }
+    object-fit: cover;
+    width: 225px;
+    height: 225px;
+    border-radius: 100%;
   }
 
   .menu-item_price-block {
     width: 100px;
     height: 100px;
-    background-color: var(--color-secondary);
-    border: 8px solid var(--color-primary-light);
+    background-color: $color-secondary;
+    border: 8px solid $color-primary-light;
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -111,7 +125,7 @@ const props = defineProps({
     font-weight: 400;
     font-size: 30px;
     line-height: 33px;
-    color: var(--color-primary-light);
+    color: $color-primary-light;
   }
 
   &_info {
@@ -126,7 +140,7 @@ const props = defineProps({
     font-weight: 400;
     font-size: 26px;
     line-height: 30px;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
     padding: 5px 0;
   }
   &_description {
@@ -135,7 +149,7 @@ const props = defineProps({
     font-size: 16px;
     line-height: 22px;
     text-align: center;
-    color: var(--color-primary-dark);
+    color: $color-primary-dark;
     padding: 5px 0;
   }
 }
