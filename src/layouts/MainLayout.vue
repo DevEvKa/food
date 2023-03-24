@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <app-header></app-header>
-
     <slot />
     <app-footer></app-footer>
   </div>

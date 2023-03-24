@@ -1,10 +1,23 @@
 <template>
-  <main-page></main-page>
+  <div>
+    <button v-if="mainStore.shopList.length" @click="mainStore.count++">
+      корзина
+    </button>
+
+    <li v-for="({name,img},index) in mainStore.products) ">
+      <p>
+        {{ name }}
+      </p>
+      <img :src="img"/>
+    </li>
+  </div>
 </template>
 
 <script setup>
+import useMainStore from '@/stores/main.js'
 
-import MainPage from '@/pages/main/index.vue';
+const mainStore = useMainStore()
+
 </script>
 
 
