@@ -1,5 +1,5 @@
 <template>
-  <div class="dishes-item">
+  <div class="dishes-item" :class="{ active }" @click="handleItemClicked">
     <img
       class="dishes-item_image"
       :src="getImageUrl(image)"
@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 const props = defineProps({
   id: {
     type: String,
@@ -43,10 +44,22 @@ const props = defineProps({
     type: String,
     require: false,
   },
+  active: {
+    type: Boolean,
+    default: false,
+    require: false,
+  },
 });
 
+const emit = defineEmits(["sendActiveItem"]);
+
+function handleItemClicked(event) {
+  emit("sendActiveItem");
+}
+
 function getImageUrl(image) {
-  return new URL(`../assets/images/dishes/${image}`, import.meta.url).href;
+  return new URL(`../../../assets/images/dishes/${image}`, import.meta.url)
+    .href;
 }
 </script>
 
@@ -58,12 +71,6 @@ function getImageUrl(image) {
   justify-content: space-between;
   box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 550px) {
-    max-width: 90%;
-  }
-  @media (min-width: 700px) {
-    max-width: 80%;
-  }
   @media (min-width: $screen-tablet) {
     max-width: 100%;
   }
@@ -89,10 +96,6 @@ function getImageUrl(image) {
     width: 100%;
     max-width: 168px;
     height: 140px;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
   &_name {
     font-style: normal;
@@ -125,5 +128,10 @@ function getImageUrl(image) {
     line-height: 30px;
     color: $color-primary-dark;
   }
+}
+.active,
+.active:hover {
+  box-shadow: 1px 1px 5px 2px $color-accent;
+  border-color: $color-accent;
 }
 </style>

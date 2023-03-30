@@ -34,11 +34,11 @@ const props = defineProps({
 });
 
 function getImageUrl(image) {
-  return new URL(`../assets/images/${image}`, import.meta.url).href;
+  return new URL(`../../../assets/images/hero/${image}`, import.meta.url).href;
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .advantage-item {
   width: 100%;
   height: auto;

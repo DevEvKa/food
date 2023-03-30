@@ -1,5 +1,5 @@
 <template>
-  <section class="the-hero">
+  <section class="the-hero" @mousemove="mousemove">
     <div class="content-wrapper">
       <div class="the-hero_text">
         <p class="the-hero_text-main">
@@ -27,47 +27,9 @@
 </template>
 
 <script setup>
-import AdvantageItem from "../../AdvantageItem.vue";
-import ButtonMain from "../../ButtonMain.vue";
-import { ADVANTAGESINFO } from "../../../moc/data";
-
-// &::before {
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     top: -70px;
-//     left: 0;
-//     width: 100%;
-//     height: 80vh;
-//     background: url(@/assets/images/bg_header_hero.jpg) 0px 0px no-repeat;
-//     background-size: cover;
-//   }
-//   &::after {
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     top: -70px;
-//     left: 0;
-//     width: 100%;
-//     height: 80vh;
-//     background: rgba(0, 0, 0, 0.7);
-//     background-size: cover;
-//   }
-
-// background: url(@/assets/images/bg_header_hero.jpg) 0px 0px no-repeat;
-//   background-size: cover;
-
-//   &::after {
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     top: -70px;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgba(0, 0, 0, 0.8);
-//     background-size: cover;
-//   }
+import AdvantageItem from "./AdvantageItem.vue";
+import ButtonMain from "@/components/ButtonMain.vue";
+import { ADVANTAGESINFO } from "@/moc/data";
 </script>
 
 <style lang="scss" scoped>
@@ -77,39 +39,33 @@ import { ADVANTAGESINFO } from "../../../moc/data";
   flex-direction: column;
   align-items: center;
   top: 0;
-  background: url(@/assets/images/bg_header_hero.jpg) 0px 0px no-repeat;
-  background-size: cover;
-  height: 100vh;
-  margin-bottom: 580px;
+  background-color: yellow;
+  margin-bottom: 720px;
 
+  @media (min-width: 524px) {
+    margin-bottom: 690px;
+  }
   @media (min-width: 600px) {
-    margin-bottom: 460px;
+    margin-bottom: 590px;
   }
-  @media (min-width: $screen-tablet) {
-    margin-bottom: 390px;
+  @media (min-width: 653px) {
+    margin-bottom: 540px;
   }
-
+  @media (min-width: 779px) {
+    margin-bottom: 480px;
+  }
   @media (min-width: 900px) {
-    margin-bottom: 250px;
+    margin-bottom: 230px;
   }
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -70px;
-    height: calc(100% + 70px);
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    background-size: cover;
+  @media (min-width: 1113px) {
+    margin-bottom: 180px;
   }
 
   &_text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 200px 0;
+    padding: 200px 0 250px;
     color: $color-secondary;
     font-style: normal;
     font-weight: 400;
@@ -180,6 +136,9 @@ import { ADVANTAGESINFO } from "../../../moc/data";
     align-items: center;
     justify-content: stretch;
     gap: 15px;
+    position: absolute;
+    top: 580px;
+    left: 0;
 
     @media (min-width: 500px) {
       flex-direction: row;

@@ -1,32 +1,22 @@
 <template>
   <nav class="nav-menu">
-    <div class="nav-menu_body" :class="{ open: isMenuOpen }">
-      <ul class="nav-menu_list">
-        <li class="nav-menu_item" v-for="link of navLinks" :key="link">
-          <a href="#" class="nav-menu_link">{{ link }}</a>
-        </li>
-      </ul>
-    </div>
-    <button-burger @sendBurgerState="openMenu"></button-burger>
+    <ul class="nav-menu_list">
+      <li class="nav-menu_item" v-for="link of navLinks" :key="link">
+        <a href="#" class="nav-menu_link">{{ link }}</a>
+      </li>
+    </ul>
   </nav>
 </template>
 
 <script setup>
 import ButtonBurger from "../components/ButtonBurger.vue";
+
 const props = defineProps({
   navLinks: {
     type: Array,
     default: ["О нас", "Меню", "Отзывы"],
   },
-  isMenuOpen: {
-    type: Boolean,
-    default: false,
-  },
 });
-
-const openMenu = (burgerState) => {
-  this.isMenuOpen = burgerState;
-};
 </script>
 
 <style lang="scss" scoped>
@@ -35,31 +25,6 @@ const openMenu = (burgerState) => {
 
   @media (min-width: 800px) {
     flex-grow: 1;
-  }
-
-  &_body {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: -100%;
-    transition: all 0.3s;
-    padding: 100px 15px 20px 15px;
-    overflow: auto;
-
-    &.open {
-      left: 0;
-      background-color: $color-primary-dark;
-    }
-    @media (min-width: 800px) {
-      overflow: visible;
-      position: relative;
-      display: flex;
-
-      left: 0;
-      height: auto;
-      padding: 0;
-    }
   }
 
   &_list {
@@ -83,6 +48,10 @@ const openMenu = (burgerState) => {
       margin-bottom: 0;
       padding: 0;
     }
+    .footer & {
+      margin: 0;
+      padding: 10px;
+    }
   }
 
   &_link {
@@ -94,6 +63,9 @@ const openMenu = (burgerState) => {
     }
     @media (min-width: 1000px) {
       font-size: 23px;
+    }
+    .footer & {
+      font-size: 25px;
     }
   }
 }

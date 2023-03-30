@@ -17,7 +17,7 @@
   </div>
 </template>
 <script setup>
-import ButtonMain from "./ButtonMain.vue";
+import ButtonMain from "@/components/ButtonMain.vue";
 const props = defineProps({
   image: {
     type: String,
@@ -50,7 +50,8 @@ const props = defineProps({
 });
 
 function getImageUrl(image) {
-  return new URL(`../assets/images/dishes/${image}`, import.meta.url).href;
+  return new URL(`../../../assets/images/dishes/${image}`, import.meta.url)
+    .href;
 }
 </script>
 

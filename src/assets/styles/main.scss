@@ -1,6 +1,5 @@
 body {
-    min-width: 340px;
-    min-height: 100vh;
+    min-width: 300px;
     color: $color-primary-dark;
     font-family: $font-main;
     font-size: 16px;
@@ -13,17 +12,46 @@ body {
 
 
   .container {
-    min-width: 340px;
-    max-width: 1440px;
+    min-height: 100vh;
     margin: 0 auto;
-    overflow: clip;
     display: grid;
+    grid-template-areas:
+    "header"     
+    "main"
+    "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: minmax(75px,90px) auto minmax(208px,223px);
   }
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+  }
+  
+  .footer {
+    grid-area: footer;
+  }
+  
   
   .content-wrapper {
     width: 100%;
     padding: 20px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    max-width: 479.99px;
+    border: 2px solid green;
+
+    @media (min-width: $screen-phone-landscape) {
+      max-width: 767.99px;
+    }
+    @media (min-width: $screen-tablet) {
+      max-width: 1023.99px;
+    }
+    @media (min-width: $screen-desktop) {
+      max-width: 1399.99px;
+    }
   }
 
   *{
@@ -33,7 +61,8 @@ body {
 
 
   section {
-    padding: 20px 0;
+    padding: 60px 0;
+    border: 1px solid red;
   }
 
   a:hover {

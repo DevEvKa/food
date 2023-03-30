@@ -1,62 +1,71 @@
 <template>
   <section class="our-history">
-    <div class="our-history_content">
-      <section-title>
-        <template v-slot:text>Наша </template>
-        <template v-slot:accent>история</template>
-      </section-title>
-      <p class="our-history_description">
-        Как и у любого другого самобытного места, у нас есть своя, особая
-        история. Идея ресторана пришла основателям неожиданно. Во время прогулки
-        по лесу создатель нашего ресторана застрял в сотнях километров от
-        ближайшего населенного пункта. Вдали от цивилизации и связи им пришлось
-        навремя обустровать себе нехитрый быт, добывать и готовить себе еду.
-      </p>
-      <div class="our-history_statistics">
-        <history-statistics
-          v-for="menuItem in HISTORYSTATISTICSITEMS"
-          :key="menuItem.id"
-          :number="menuItem.number"
-          :dish="menuItem.dish"
-        ></history-statistics>
+    <div class="content-wrapper our-history_content-wrapper">
+      <div class="our-history_content">
+        <section-title>
+          <template v-slot:text>Наша </template>
+          <template v-slot:accent>история</template>
+        </section-title>
+        <p class="our-history_description">
+          Как и у любого другого самобытного места, у нас есть своя, особая
+          история. Идея ресторана пришла основателям неожиданно. Во время
+          прогулки по лесу создатель нашего ресторана застрял в сотнях
+          километров от ближайшего населенного пункта. Вдали от цивилизации и
+          связи им пришлось навремя обустровать себе нехитрый быт, добывать и
+          готовить себе еду.
+        </p>
+        <div class="our-history_statistics">
+          <history-statistics
+            v-for="menuItem in HISTORYSTATISTICSITEMS"
+            :key="menuItem.id"
+            :number="menuItem.number"
+            :dish="menuItem.dish"
+          ></history-statistics>
+        </div>
       </div>
-    </div>
 
-    <div class="our-history_photos">
-      <img
-        src="@/assets/images/photo-collection-1.jpg"
-        class="our-history_photo our-history_photo_1"
-        alt="Фото ресторана"
-      />
-      <img
-        src="@/assets/images/photo-collection-2.jpg"
-        class="our-history_photo our-history_photo_2"
-        alt="Фото ресторана"
-      />
-      <img
-        src="@/assets/images/photo-collection-3.jpg"
-        class="our-history_photo our-history_photo_3"
-        alt="Фото ресторана"
-      />
+      <div class="our-history_photos">
+        <img
+          src="@/assets/images/history/photo-collection-1.jpg"
+          class="our-history_photo our-history_photo_1"
+          alt="Фото ресторана"
+        />
+        <img
+          src="@/assets/images/history/photo-collection-2.jpg"
+          class="our-history_photo our-history_photo_2"
+          alt="Фото ресторана"
+        />
+        <img
+          src="@/assets/images/history/photo-collection-3.jpg"
+          class="our-history_photo our-history_photo_3"
+          alt="Фото ресторана"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import SectionTitle from "../../SectionTitle.vue";
-import HistoryStatistics from "../../HistoryStatistics.vue";
+import SectionTitle from "@/components/SectionTitle.vue";
+import HistoryStatistics from "./HistoryStatistics.vue";
 
-import { HISTORYSTATISTICSITEMS } from "../../../moc/data";
+import { HISTORYSTATISTICSITEMS } from "@/moc/data";
 </script>
 
 <style lang="scss" scoped>
 .our-history {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-  @media (min-width: $screen-tablet) {
-    flex-direction: row;
+  &_content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (min-width: 900px) {
+      //реагирует на 600px. почему?
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
   }
 
   &_content {
@@ -66,7 +75,6 @@ import { HISTORYSTATISTICSITEMS } from "../../../moc/data";
     gap: 25px;
 
     @media (min-width: $screen-tablet) {
-      max-width: 50%;
       padding: 20px 40px;
     }
   }
@@ -84,7 +92,7 @@ import { HISTORYSTATISTICSITEMS } from "../../../moc/data";
     align-items: center;
     gap: 20px;
 
-    @media (min-width: $screen-tablet) {
+    @media (min-width: 500px) {
       flex-direction: row;
       align-items: stretch;
       justify-content: space-between;
@@ -92,17 +100,20 @@ import { HISTORYSTATISTICSITEMS } from "../../../moc/data";
   }
 
   &_photos {
-    min-width: 100%;
-    height: 257px;
+    display: flex;
+    flex-grow: 1;
+    height: 200px;
     background-color: transparent;
 
     @media (min-width: 600px) {
       min-width: 50%;
-      height: 297px;
+      height: 250px;
     }
 
     @media (min-width: $screen-tablet) {
-      min-width: 50%;
+      height: 380px;
+    }
+    @media (min-width: $screen-desktop) {
       height: 498px;
     }
   }
@@ -134,21 +145,14 @@ import { HISTORYSTATISTICSITEMS } from "../../../moc/data";
     &_2 {
       position: absolute;
       top: 0;
-      left: 80px;
+      left: 25%;
       object-fit: cover;
       width: 50%;
       height: 85%;
       z-index: 0;
-      @media (min-width: 600px) {
-        left: 100px;
-      }
 
-      @media (min-width: $screen-tablet) {
-        left: 140px;
-      }
-
-      @media (min-width: $screen-desktop) {
-        left: 180px;
+      @media (min-width: $screen-phone-landscape) {
+        left: 30%;
       }
     }
 

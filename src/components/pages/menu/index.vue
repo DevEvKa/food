@@ -24,9 +24,9 @@
 
 <script setup>
 import SectionTitle from "../../SectionTitle.vue";
-import MenuItem from "../../MenuItem.vue";
+import MenuItem from "./MenuItem.vue";
 
-import { MENUITEMS } from "../../../moc/data";
+import { MENUITEMS } from "@/moc/data";
 </script>
 
 <style lang="scss" scoped>

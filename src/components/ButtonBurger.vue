@@ -16,7 +16,6 @@ let isMenuClosed = ref(false);
 const emit = defineEmits(["sendBurgerState"]);
 
 function handleButtonClicked() {
-  console.log(isMenuClosed.value);
   isMenuClosed.value = !isMenuClosed.value;
   emit("sendBurgerState", isMenuClosed.value);
 }
@@ -27,8 +26,13 @@ function handleButtonClicked() {
   display: block;
   position: relative;
   z-index: 5;
-  width: 30px;
-  height: 20px;
+  width: 36px;
+  height: 24px;
+
+  @media (min-width: 500px) {
+    width: 50px;
+    height: 32px;
+  }
 
   @media (min-width: 800px) {
     display: none;

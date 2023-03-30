@@ -17,6 +17,7 @@ const btnClicked = () => {
   font-size: 14px;
   text-transform: uppercase;
   line-height: 19px;
+  letter-spacing: 1.1px;
   color: $color-primary-light;
   background-color: $color-accent;
   border: none;
@@ -33,8 +34,14 @@ const btnClicked = () => {
     font-size: 16px;
   }
   &:hover {
+    box-shadow: 0px 0px 6px 0px $color-accent;
+    text-shadow: 1px 0px 1px $color-primary-light;
+    border-color: transparent;
+  }
+  &:active {
     color: $color-accent;
     background-color: $color-primary-light;
+    text-shadow: 1px 0px 1px $color-accent;
   }
 }
 </style>

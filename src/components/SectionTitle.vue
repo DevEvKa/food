@@ -16,7 +16,7 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-  padding: 20px 0;
+  padding: 40px 0;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;

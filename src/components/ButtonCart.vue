@@ -1,13 +1,11 @@
 <template>
   <a href="#" @click="handleButtonClicked" class="button-cart">
-    <p class="button-cart_text"><slot name="buttonCartText"></slot></p>
-    <slot name="buttonCartImage">
-      <img
-        src="../assets/images/icons/icon_cart.svg"
-        class="button-cart_img"
-        alt="Корзина"
-      />
-    </slot>
+    <p class="button-cart_text">В корзину</p>
+    <img
+      src="../assets/images/icon_cart.svg"
+      class="button-cart_img"
+      alt="Корзина"
+    />
   </a>
 </template>
 
@@ -18,8 +16,10 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 50px;
 
   @media (min-width: 800px) {
+    margin-bottom: 0;
     display: flex;
     padding: 0 15px;
     align-items: center;
@@ -38,19 +38,24 @@
   }
 
   &_img {
-    width: 40px;
-    height: 40px;
-    @media (min-width: 1000px) {
-      width: 50px;
-      height: 50px;
+    display: none;
+    @media (min-width: 800px) {
+      display: block;
+      width: 45px;
+      height: 45px;
     }
   }
+
   &_text {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 40px;
     line-height: 19px;
+    padding: 20px;
     color: $color-primary-light;
+    @media (min-width: 800px) {
+      display: none;
+    }
     @media (min-width: 1000px) {
       font-size: 18px;
     }

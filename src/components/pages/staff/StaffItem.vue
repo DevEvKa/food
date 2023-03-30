@@ -33,7 +33,7 @@ const props = defineProps({
 });
 
 function getImageUrl(image) {
-  return new URL(`../assets/images/staff/${image}`, import.meta.url).href;
+  return new URL(`../../../assets/images/staff/${image}`, import.meta.url).href;
 }
 </script>
 
@@ -48,7 +48,11 @@ function getImageUrl(image) {
 
   &_img {
     width: 100%;
+    max-width: 200px;
     height: auto;
+    @media (min-width: 600px) {
+      max-width: 340px;
+    }
   }
 
   &_info {

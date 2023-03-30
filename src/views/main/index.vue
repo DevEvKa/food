@@ -2,19 +2,12 @@
   <main class="main">
     <slot>
       <the-hero></the-hero>
-      <div class="content-wrapper">
-        <our-history></our-history>
-      </div>
-
+      <our-history></our-history>
       <the-promo></the-promo>
-      <div class="content-wrapper">
-        <the-dishes></the-dishes>
-      </div>
+      <the-dishes></the-dishes>
       <our-menu></our-menu>
       <the-feedback></the-feedback>
-      <div class="content-wrapper">
-        <the-gallery></the-gallery>
-      </div>
+      <the-gallery></the-gallery>
       <our-staff></our-staff>
     </slot>
   </main>
@@ -30,3 +23,9 @@ import TheFeedback from "../../components/pages/feedback/index.vue";
 import TheGallery from "../../components/pages/gallery/index.vue";
 import OurStaff from "../../components/pages/staff/index.vue";
 </script>
+
+<style lang="scss" scoped>
+.main {
+  align-items: stretch;
+}
+</style>

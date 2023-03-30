@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 0 0 38px;
+  flex: 0 0 45px;
   background-color: transparent;
   z-index: 5;
 
@@ -18,11 +18,11 @@
   }
 
   @media (min-width: $screen-phone-landscape) {
-    flex-basis: 45px;
+    flex-basis: 60px;
   }
 
   @media (min-width: $screen-tablet) {
-    flex-basis: 70px;
+    flex-basis: 80px;
   }
 
   @media (min-width: $screen-desktop) {

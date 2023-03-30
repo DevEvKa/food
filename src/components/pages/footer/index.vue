@@ -2,10 +2,13 @@
   <footer class="footer">
     <div class="content-wrapper">
       <div class="footer_main">
-        <button-cart
-          ><template v-slot:buttonCartText>В корзину</template></button-cart
-        >
-        <button-main><template v-slot:button>Заказать</template></button-main>
+        <nav-menu class="footer_nav"></nav-menu>
+        <div class="footer_contacts">
+          <phone-block></phone-block>
+          <button-main
+            ><template v-slot:button>Заказ столика</template></button-main
+          >
+        </div>
       </div>
       <p class="footer_copyright">
         © 2023 Евгения Карабанова: All rights reserved :)
@@ -17,6 +20,8 @@
 <script setup>
 import ButtonCart from "@/components/ButtonCart.vue";
 import ButtonMain from "@/components/ButtonMain.vue";
+import NavMenu from "@/components/NavMenu.vue";
+import PhoneBlock from "@/components/PhoneBlock.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +30,7 @@ import ButtonMain from "@/components/ButtonMain.vue";
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 0;
+  align-self: end;
   background: url(@/assets/images/bg_header_hero.jpg) 0px 0px no-repeat;
   background-size: cover;
 
@@ -43,12 +48,21 @@ import ButtonMain from "@/components/ButtonMain.vue";
   &_main {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
     @media (min-width: $screen-tablet) {
       padding: 20px;
     }
   }
+  &_contacts {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 600px) {
+      flex-direction: row;
+      gap: 50px;
+    }
+  }
+
   &_copyright {
     font-style: normal;
     font-weight: 400;

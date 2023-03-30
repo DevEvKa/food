@@ -1,51 +1,53 @@
 <template>
   <section class="photo-gallery">
-    <section-title>
-      <template v-slot:text>Галлерея </template>
-      <template v-slot:accent>блюд</template>
-    </section-title>
-    <div class="photo-gallery_list">
-      <div class="photo-gallery_container photo-gallery_container_1">
-        <img
-          src="@/assets/images/photo-gallery_1.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
-      </div>
-      <div class="photo-gallery_container photo-gallery_container_2">
-        <img
-          src="@/assets/images/photo-gallery_2.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
-      </div>
-      <div class="photo-gallery_container photo-gallery_container_3">
-        <img
-          src="@/assets/images/photo-gallery_3.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
-      </div>
-      <div class="photo-gallery_container photo-gallery_container_4">
-        <img
-          src="@/assets/images/photo-gallery_2.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
-      </div>
-      <div class="photo-gallery_container photo-gallery_container_5">
-        <img
-          src="@/assets/images/photo-gallery_3.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
-      </div>
-      <div class="photo-gallery_container photo-gallery_container_6">
-        <img
-          src="@/assets/images/photo-gallery_1.jpg"
-          alt="Фотография блюда"
-          class="photo-gallery_img"
-        />
+    <div class="content-wrapper">
+      <section-title>
+        <template v-slot:text>Галлерея </template>
+        <template v-slot:accent>блюд</template>
+      </section-title>
+      <div class="photo-gallery_list">
+        <div class="photo-gallery_container photo-gallery_container_1">
+          <img
+            src="@/assets/images/gallery/photo-gallery_1.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
+        <div class="photo-gallery_container photo-gallery_container_2">
+          <img
+            src="@/assets/images/gallery/photo-gallery_2.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
+        <div class="photo-gallery_container photo-gallery_container_3">
+          <img
+            src="@/assets/images/gallery/photo-gallery_3.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
+        <div class="photo-gallery_container photo-gallery_container_4">
+          <img
+            src="@/assets/images/gallery/photo-gallery_4.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
+        <div class="photo-gallery_container photo-gallery_container_5">
+          <img
+            src="@/assets/images/gallery/photo-gallery_5.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
+        <div class="photo-gallery_container photo-gallery_container_6">
+          <img
+            src="@/assets/images/gallery/photo-gallery_6.jpg"
+            alt="Фотография блюда"
+            class="photo-gallery_img"
+          />
+        </div>
       </div>
     </div>
   </section>

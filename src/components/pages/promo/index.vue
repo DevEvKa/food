@@ -21,19 +21,20 @@ import ButtonMain from "../../ButtonMain.vue";
 
 <styles lang="scss" scoped>
 .the-promo {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: url(@/assets/images/promo/promo_bg.jpg) 0px 0px no-repeat;
+  background-size: cover;
 
   &::after {
     content: "";
     display: block;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     background-size: cover;
   }
@@ -70,6 +71,7 @@ import ButtonMain from "../../ButtonMain.vue";
       line-height: 60px;
     }
   }
+
   &_benefit {
     font-style: normal;
     font-weight: 700;
