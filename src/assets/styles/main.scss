@@ -69,4 +69,61 @@ body {
     border-bottom: 2px solid $color-primary-light;
   }
 
+  //слайдер
+
+  // .swiper-wrapper {
+
+  //   @media (min-width: $screen-tablet) {
+  //     .our-menu & {
+  //       padding: 50px 165px;
+  //     }
+  //   }
+    
+    
+  // }
+  
+  // .swiper-slide {
+  //   @media (min-width: $screen-tablet) {
+  //     .our-menu & {
+  //       padding: 0 !important;
+  //       margin: 0 !important;
+  //     }
+  //   }
+    
+  // }
+
+
+  .swiper-button-prev:after, html .swiper-button-next:after{
+    color: $color-dark-secondary;
+    transition: 0.3s;
+}
+
+.our-menu .swiper-button-prev:after, .our-menu .swiper-button-next:after{
+    color: $color-primary-light;
+}
+
+ .swiper-button-prev:hover:after, html .swiper-button-next:hover:after{
+    color: $color-secondary;
+}
+
+.swiper-button-prev:active:after, html .swiper-button-next:active:after{
+  color: $color-accent;
+}
+
+
+  span.swiper-pagination-bullet {
+    background-color:$color-dark-secondary;
+    transition: 0.3s;
+    opacity: 1;
+  }
+
+
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: $color-accent;
+  }
+
+
+  
+
+
 

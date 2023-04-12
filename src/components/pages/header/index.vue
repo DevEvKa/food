@@ -37,12 +37,25 @@ const openMenu = (burgerState) => {
 
 <style lang="scss" scoped>
 .header {
-  background-color: lightgreen;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 50;
+  background: url(@/assets/images/bg_header_hero.jpg) 0px 0px no-repeat;
+  background-size: cover;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    background-size: cover;
+  }
 
   &_content-wrapper {
     margin: 0 auto;

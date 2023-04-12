@@ -28,14 +28,15 @@ import ButtonMain from "../../ButtonMain.vue";
   background: url(@/assets/images/promo/promo_bg.jpg) 0px 0px no-repeat;
   background-size: cover;
 
-  &::after {
+  html &::after {
     content: "";
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
     background-size: cover;
   }
 

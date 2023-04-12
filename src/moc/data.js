@@ -101,6 +101,36 @@ export const MENUITEMS = [
     price: "220",
     currency: "₽",
   },
+  {
+    id: "4",
+    recommended: true,
+    image: "dishes_1.jpg",
+    alt: "Гамбургер мини",
+    title: "Гамбургер мини",
+    description: "Максимально толстый слой мяса",
+    price: "220",
+    currency: "₽",
+  },
+  {
+    id: "5",
+    recommended: false,
+    image: "dishes_2.jpg",
+    alt: "Гамбургер мини",
+    title: "Гамбургер мини",
+    description: "Максимально толстый слой мяса",
+    price: "220",
+    currency: "₽",
+  },
+  {
+    id: "6",
+    recommended: false,
+    image: "dishes_3.jpg",
+    alt: "Гамбургер мини",
+    title: "Гамбургер мини",
+    description: "Максимально толстый слой мяса",
+    price: "220",
+    currency: "₽",
+  },
 ];
 
 export const FEEDBACKITEMS = [
