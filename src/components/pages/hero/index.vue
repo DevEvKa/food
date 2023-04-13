@@ -46,7 +46,9 @@
           >
         </p>
         <h1 class="the-hero_title">Дом лучшей еды</h1>
-        <button-main><template v-slot:button>Меню</template></button-main>
+        <button-main class="the-hero_button"
+          ><template v-slot:button>Меню</template></button-main
+        >
       </div>
 
       <div class="the-hero_advantages">

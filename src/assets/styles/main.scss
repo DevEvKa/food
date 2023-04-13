@@ -93,13 +93,15 @@ body {
   // }
 
 
-  .swiper-button-prev:after, html .swiper-button-next:after{
+
+.swiper-button-prev:after, html .swiper-button-next:after{
     color: $color-dark-secondary;
     transition: 0.3s;
 }
 
 .our-menu .swiper-button-prev:after, .our-menu .swiper-button-next:after{
     color: $color-primary-light;
+    
 }
 
  .swiper-button-prev:hover:after, html .swiper-button-next:hover:after{
@@ -108,6 +110,7 @@ body {
 
 .swiper-button-prev:active:after, html .swiper-button-next:active:after{
   color: $color-accent;
+  //margin: 20px;
 }
 
 

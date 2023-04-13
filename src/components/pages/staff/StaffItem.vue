@@ -48,22 +48,30 @@ function getImageUrl(image) {
 
   &_img {
     width: 100%;
-    max-width: 200px;
     height: auto;
+    z-index: 1;
     @media (min-width: 600px) {
       max-width: 340px;
     }
   }
 
   &_info {
-    width: 70%;
-    bottom: 50px;
+    position: absolute;
+    width: 60%;
+    top: 340px;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px 15px;
     text-align: center;
+    font-size: 16px;
     background-color: $color-primary-light;
+    border: 2px solid $color-dark-secondary;
+    z-index: 20;
     @media (min-width: 600px) {
+      font-size: 18px;
+    }
+    @media (min-width: 798px) {
+      top: 410px;
       font-size: 20px;
     }
   }
